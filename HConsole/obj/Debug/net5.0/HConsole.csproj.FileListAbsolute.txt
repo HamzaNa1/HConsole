@@ -1,0 +1,12 @@
+/home/hamza/RiderProjects/HConsole/HConsole/bin/Debug/net5.0/HConsole.deps.json
+/home/hamza/RiderProjects/HConsole/HConsole/bin/Debug/net5.0/HConsole.dll
+/home/hamza/RiderProjects/HConsole/HConsole/bin/Debug/net5.0/ref/HConsole.dll
+/home/hamza/RiderProjects/HConsole/HConsole/bin/Debug/net5.0/HConsole.pdb
+/home/hamza/RiderProjects/HConsole/HConsole/obj/Debug/net5.0/HConsole.csprojAssemblyReference.cache
+/home/hamza/RiderProjects/HConsole/HConsole/obj/Debug/net5.0/HConsole.GeneratedMSBuildEditorConfig.editorconfig
+/home/hamza/RiderProjects/HConsole/HConsole/obj/Debug/net5.0/HConsole.AssemblyInfoInputs.cache
+/home/hamza/RiderProjects/HConsole/HConsole/obj/Debug/net5.0/HConsole.AssemblyInfo.cs
+/home/hamza/RiderProjects/HConsole/HConsole/obj/Debug/net5.0/HConsole.csproj.CoreCompileInputs.cache
+/home/hamza/RiderProjects/HConsole/HConsole/obj/Debug/net5.0/HConsole.dll
+/home/hamza/RiderProjects/HConsole/HConsole/obj/Debug/net5.0/ref/HConsole.dll
+/home/hamza/RiderProjects/HConsole/HConsole/obj/Debug/net5.0/HConsole.pdb

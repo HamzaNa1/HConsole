@@ -1,0 +1,60 @@
+{
+  "format": 1,
+  "restore": {
+    "/home/hamza/RiderProjects/HConsole/HConsole/HConsole.csproj": {}
+  },
+  "projects": {
+    "/home/hamza/RiderProjects/HConsole/HConsole/HConsole.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/home/hamza/RiderProjects/HConsole/HConsole/HConsole.csproj",
+        "projectName": "HConsole",
+        "projectPath": "/home/hamza/RiderProjects/HConsole/HConsole/HConsole.csproj",
+        "packagesPath": "/home/hamza/.nuget/packages/",
+        "outputPath": "/home/hamza/RiderProjects/HConsole/HConsole/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/home/hamza/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0": {
+            "targetAlias": "net5.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/snap/dotnet-sdk/current/sdk/5.0.201/RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
