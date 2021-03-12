@@ -5,13 +5,20 @@ using System.Linq;
 
 namespace HConsole
 {
-    internal readonly struct Group
+    internal struct Group
     {
-        public Point Start { get; }
-        public char Character { get; }
-        public int Count { get; }
+        public Point Start { get; private set; }
+        public char Character { get; private set; }
+        public int Count { get; private set; }
 
         private Group(Point start, char c, int count)
+        {
+            Start = start;
+            Character = c;
+            Count = count;
+        }
+
+        private void Set(Point start, char c, int count)
         {
             Start = start;
             Character = c;
@@ -28,6 +35,8 @@ namespace HConsole
             if (points.Count == 0)
                 return groups;
 
+            Group group;
+            
             var firstPoint = points[0];
 
             var start = firstPoint;
@@ -36,7 +45,9 @@ namespace HConsole
 
             if (points.Count == 1)
             {
-                groups.Add(new Group(start, c, count));
+                 group = Pool.GetGroup();
+                group.Set(start, c, count);
+                groups.Add(group);
                 return groups;
             }
 
@@ -52,15 +63,19 @@ namespace HConsole
                 }
                 else
                 {
-                    groups.Add(new Group(start: start, c: c, count: count));
+                    group = Pool.GetGroup();
+                    group.Set(start, c, count);
+                    groups.Add(group);
                     start = currentPoint;
                     c = window.GetChar(currentPoint);
                     count = 1;
                 }
 
-                groups.Add(new Group(start: start, c: c, count: count));
+                group = Pool.GetGroup();
+                group.Set(start, c, count);
+                groups.Add(group);
             }
-            
+
             return groups;
         }
     }

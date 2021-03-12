@@ -15,7 +15,7 @@ namespace HConsole
         public static void UpdateWindow()
         {
             var newWindow = GetWindowFromBuffer();
-
+    
             if (_window == null)
             {
                 _window = newWindow;
@@ -27,10 +27,23 @@ namespace HConsole
 
             RemoveExtras(smallerY, newWindow);
 
-            var groups = Group.CreateGroups(CreatePoints(smallerY, newWindow), newWindow);
-            
             _window = newWindow;
+
+            var points = CreatePoints(smallerY, newWindow);
+            if (points == null)
+            {
+                Flush();
+                return;
+            }
+
+            var groups = Group.CreateGroups(points, newWindow);
+            
             Flush(groups);
+            
+            for(var i = 0; i < points.Count; i++)
+                Pool.ReturnPoint(points[i]);
+            for(var i = 0; i < groups.Count; i++)
+                Pool.ReturnGroup(groups[i]);
         }
 
         private static Window GetWindowFromBuffer()
@@ -72,13 +85,15 @@ namespace HConsole
                     if (_window.GetChar(i, j) == newWindow.GetChar(i, j))
                         continue;
 
-                    points.Add(new Point(i, j));
+                    var point = Pool.GetPoint();
+                    point.X = i;
+                    point.Y = j;
+                    
+                    points.Add(point);
 
                     if (points.Count >= (smallerY * Width) / 4)
                     {
-                        _window = newWindow;
-                        Flush();
-                        return points;
+                        return null;
                     }
                 }
             }
