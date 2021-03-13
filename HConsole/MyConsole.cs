@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Drawing;
 using System.Linq;
 
 namespace HConsole
@@ -26,18 +25,18 @@ namespace HConsole
             var smallerY = Math.Min(_window.Height, newWindow.Height);
 
             RemoveExtras(smallerY, newWindow);
-
-            _window = newWindow;
-
+            
             var points = CreatePoints(smallerY, newWindow);
             if (points == null)
             {
+                _window = newWindow;
                 Flush();
                 return;
             }
 
             var groups = Group.CreateGroups(points, newWindow);
             
+            _window = newWindow;
             Flush(groups);
             
             for(var i = 0; i < points.Count; i++)

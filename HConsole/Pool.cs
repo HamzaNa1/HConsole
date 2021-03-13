@@ -5,36 +5,33 @@ namespace HConsole
 {
     internal static class Pool
     {
-        private static Queue<Group> groupPool = new Queue<Group>();
-        private static Queue<Point> pointPool = new Queue<Point>(); 
+        private static readonly Queue<Group> GroupPool = new();
+        private static readonly Queue<Point> PointPool = new(); 
         
         public static Group GetGroup()
         {
-            if (groupPool.Count == 0)
-            {
+            if (GroupPool.Count == 0)
                 return new Group();
-            }
 
-            return groupPool.Dequeue();
+            return GroupPool.Dequeue();
         }
 
         public static void ReturnGroup(Group group)
         {
-            groupPool.Enqueue(group);
+            GroupPool.Enqueue(group);
         }
         
         public static Point GetPoint()
         {
-            if (pointPool.Count == 0)
-            {
+            if (PointPool.Count == 0)
                 return new Point();
-            }
 
-            return pointPool.Dequeue();        }
+            return PointPool.Dequeue();        
+        }
 
         public static void ReturnPoint(Point point)
         {
-            pointPool.Enqueue(point);
+            PointPool.Enqueue(point);
         }
     }
 }

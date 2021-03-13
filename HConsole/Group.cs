@@ -1,7 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Drawing;
-using System.Linq;
 
 namespace HConsole
 {
@@ -45,7 +43,7 @@ namespace HConsole
 
             if (points.Count == 1)
             {
-                 group = Pool.GetGroup();
+                group = Pool.GetGroup();
                 group.Set(start, c, count);
                 groups.Add(group);
                 return groups;
