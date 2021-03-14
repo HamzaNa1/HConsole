@@ -10,10 +10,7 @@ namespace HConsole
         
         public static Group GetGroup()
         {
-            if (GroupPool.Count == 0)
-                return new Group();
-
-            return GroupPool.Dequeue();
+            return GroupPool.TryDequeue(out var group) ? group : new Group();
         }
 
         public static void ReturnGroup(Group group)
@@ -23,10 +20,7 @@ namespace HConsole
         
         public static Point GetPoint()
         {
-            if (PointPool.Count == 0)
-                return new Point();
-
-            return PointPool.Dequeue();        
+            return PointPool.TryDequeue(out var point) ? point : new Point();
         }
 
         public static void ReturnPoint(Point point)

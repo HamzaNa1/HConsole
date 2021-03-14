@@ -18,9 +18,6 @@ namespace HConsole
 
         public int GetWidth(int line)
         {
-            if (line >= WindowText.Length)
-                throw new IndexOutOfRangeException();
-
             var width = 0;
 
             for (var i = 0; i < WindowText[line].Length; i++)

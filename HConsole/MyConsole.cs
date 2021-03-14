@@ -7,27 +7,19 @@ namespace HConsole
     public static class MyConsole
     {
         private static readonly List<char> Buffer = new();
-        private static Window _window;
+        private static Window _window = new(new[] { new char[Width] });
 
         private const int Width = 250;
 
         public static void UpdateWindow()
         {
             var newWindow = GetWindowFromBuffer();
-    
-            if (_window == null)
-            {
-                _window = newWindow;
-                Flush();
-                return;
-            }
-
             var smallerY = Math.Min(_window.Height, newWindow.Height);
 
             RemoveExtras(smallerY, newWindow);
             
             var points = CreatePoints(smallerY, newWindow);
-            if (points == null)
+            if (points is null)
             {
                 _window = newWindow;
                 Flush();
@@ -87,13 +79,13 @@ namespace HConsole
                     var point = Pool.GetPoint();
                     point.X = i;
                     point.Y = j;
-                    
-                    points.Add(point);
 
-                    if (points.Count >= (smallerY * Width) / 4)
-                    {
-                        return null;
-                    }
+                    points.Add(point);
+                }
+                
+                if (points.Count >= (smallerY * Width) / 4)
+                {
+                    return null;
                 }
             }
 
